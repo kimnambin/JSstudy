@@ -50,3 +50,8 @@ function solution(n)
 }
 //내 풀이에 더 짧은 예시이다 그냥 새로운 배열에 넣지 말고 내 기준 sum에 숫자로 바꾸고 바로 += 했으면 됐는데 바보 같이 어렵게 풀었다 ㅠㅠ
 //요즘 시험기간이라 코테는 못했는데 그사이에 감을 조금 잃은 거 같다 ㅠㅠ
+
+//자연수 뒤집에 배열로 만들기
+function solution(n) {
+    return String(n).split('').map(number).reverse();
+}
