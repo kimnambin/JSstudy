@@ -55,3 +55,141 @@ function solution(n)
 function solution(n) {
     return String(n).split('').map(number).reverse();
 }
+
+//가운데 글자 가져오기
+function solution(s) {
+    var answer = '';
+    if(s.length % 2 === 0){
+        answer += s[Math.floor(s.length /2)-1];
+        answer += s[Math.floor(s.length /2)];
+    }else {
+        answer += s[Math.floor(s.length /2)];
+    }
+    return answer;
+}
+
+//핸드폰 번호 가리기
+function solution(phone_number) {
+    var answer = '';
+    for(let i =0; i < phone_number.length-4; i ++){
+        answer += '*'
+    }
+    return answer + phone_number.substr(phone_number.length-4)
+}
+
+//콜라츠 추측
+function solution(num) {
+    var cnt = 0;
+    
+    while(num !== 1){
+    if(num % 2 === 0){
+        num = num / 2;
+        cnt ++;
+    }else{
+        num = num * 3 + 1;
+        cnt ++;
+    }
+        if(cnt >500) return -1;
+    }
+    
+    return cnt;
+}
+
+//나누어 떨어지는 숫자 배열
+function solution(arr,divisor){
+    var answer = arr.filter (v => v % divisor === 0); //0으로 나누어 떨어지는 경우 필터링!!
+    return answer.length == 0 ? [-1] : answer.sort((a,b) => a-b); 
+    //만약 길이가 0 (그니까 나누어 떨어지는 게 없는 경우) 이면 [-1] 그렇지 않으면 올림차순으로 정렬하여 출력
+}
+
+//없는 숫자 더하기
+function solution(numbers) {
+    return 45 - numbers.reduce((a,b) => a+b,0);
+}
+//없는 숫자를 찾아서 더해서 문제를 풀어도 되지만 1부터 9까지의 합에서 현재 숫자의 합을 빼는 걸로 문제를 풀었다 ㅎㅎ
+//난 for문을 이용해서 문제를 풀었지만 reduce 함수를 사용해도 풀 수 있다는 것을 알게 되었다.
+
+//음양 더하기
+function solution(absolutes, signs) {
+let sum = 0;
+for (let i = 0; i <absolutes.length; i ++){
+    if (signs[i]) sum += absolutes[i];
+    else sum -= absolutes[i];
+}
+    return sum;
+}
+
+//서울에서 김서방 찾기
+function solution(seoul) {
+    let tmp = 0;
+    for(let i =0; i < seoul.length; i ++){
+        if (seoul[i] === "Kim") tmp += i
+    }
+    return `김서방은 ${tmp}에 있다`;
+}
+
+//두 정수 사이의 합
+function solution(a, b) {
+    let max = Math.max(a,b);
+    let min = Math.min(a,b);
+    let sum =0;
+
+    for(let i =min; i < max; i ++){
+        sum += i;
+    }
+    return sum;
+}
+
+//나머지가 1이 되는 수 찾기
+function solution(n) {
+    for(let i = 2; i <= n; i ++){
+        if(n % i === 1) return i
+    }
+}
+
+// x만큼 간격이 있는 n개의 숫자
+function solution(x, n) {
+    var answer = [];
+    let a = x; //누적되지 않고 더하기 위함
+    while(answer.length !== n){
+        answer.push(x);
+        x += a;
+    }
+    return answer;
+}
+
+//하샤드 수
+function solution(x) {
+    let sum =0;
+    var answer = String(x).split('');
+    for(let i =0; i < answer.length; i ++){
+        sum += Number(answer[i])
+    }
+    
+    if( x % sum === 0 ) return true;
+    else return false;
+}
+
+//평균 구하기
+function solution(arr) {
+    var answer = 0;
+    for(let i =0; i < arr.length; i ++){
+        answer += arr[i];
+    }
+    return answer/arr.length;
+}
+
+//짝수와 홀수
+function solution(num) {
+    return num % 2 ===0 ? "Even" : "Odd";
+}
+
+//정수 제곱근 판별
+function solution(n) {
+    return (n % Math.sqrt(n)===0) ? (Math.sqrt(n)+1) * (Math.sqrt(n)+1) : -1;
+}
+
+//정수 내림차순으로 배치하기
+function solution(n) {
+    return Number(String(n).split('').sort((a,b)=> b-a).join(""));
+}
