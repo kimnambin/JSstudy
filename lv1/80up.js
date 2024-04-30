@@ -193,3 +193,61 @@ function solution(n) {
 function solution(n) {
     return Number(String(n).split('').sort((a,b)=> b-a).join(""));
 }
+
+//제일 작은 수 제거하기
+function solution(arr) {
+    if(arr.length === 1) return [-1]
+    let min = arr.indexOf(Math.min(...arr));
+    return arr.filter((_, v)=> v !== min);
+}
+//쉽게 풀릴줄 알았는데 생각보다 쉽지 않았다 ㅠㅠ
+
+//내적
+function solution(a, b) {
+    var answer = 0;
+    
+    for(let i =0; i < a.length; i ++){
+        answer += a[i] * b[i];
+    }
+    return answer;
+}
+
+//약수의 개수와 덧셈
+function solution(left, right) {
+    var answer = 0;
+    
+    
+    for(let i = left; i <=right; i ++){
+        if(i % Math.sqrt(i) === 0){
+            answer += (i * -1)
+        }else{
+            answer += i
+        }
+    }
+    return answer;
+}
+//첨엔 약수의 갯수를 다 구해야 하나 했는데 제곱인 수이면 무조건 홀수의 약수갯수를 가진다는것
+//알았고 문제를 풀 수 있었다 ㅎㅎ
+
+//문자열 내림차순으로 배치하기
+function solution(s) {
+    return s.split('').sort().reverse().join('');
+}
+//겁나 쉬운 문제였는데 넘 어렵게 생각했다 ㅠ.ㅠ
+
+//부족한 금액 계산하기
+function solution(price, money, count) {
+    var answer = 0;
+    for(let i = 1; i <= count; i ++){
+        answer += (price * i)
+    }
+
+    if(answer > money ) return answer-money;
+    else return 0;
+}
+
+//문자열 다루기 기본
+function solution(s) {
+    return !isNaN(Number(s)) === true && s.length === 4 || s.length === 6
+    }
+//정규 표현식이나 !isNaN을 사용해서 숫자인지 판별한 후 문제를 푸는 방식이었다
