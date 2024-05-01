@@ -50,3 +50,15 @@ function solution(food) {
 
 //그렇게 어렵지 않은 문제였는데 사실 문제를 이해하는데도 오래 걸렸다 ㅠㅠ
 //그리고 repeat와 i를 문자열로 바꾼다는 점만 알았으면 쉽게 풀었는데 그걸 몰라서 더 오래걸렸다 ㅠㅠ
+
+//최대공약수와 최소공배수
+function solution(n, m) {
+    var answer = [];
+    for(let i = n; i >= 1; i --){
+         if(n % i === 0 && m % i === 0) 
+             answer.push( i, (n/i * m/i * i))
+    }
+
+    return answer.slice(0,3);
+}
+//살짝 야매로 풀긴했지만 풀긴 품 ㅋㅋㅋ

@@ -264,4 +264,16 @@ function solution(arr1, arr2) {
 }
 //거의 다 풀어놓고 못 푼 문제였다 ㅠㅠ
 //일단 나는 이걸 먼저 for문으로 사용했는데  arr1[0].length; 이게 나중에 왔어야 했고
-// [1,2] 이런식으로 넣으려면 answer[i][j] = arr1[i][j] + arr2[i][j] 이런식으로 할수도 있구나 하고 첨 알았덩
+// [1,2] 이런식으로 넣으려면 answer[i][j] = arr1[i][j] + arr2[i][j] 이런식으로 할수도 있구나 하고 첨 알았다
+
+//같은 숫자는 싫어
+function solution(arr)
+{
+    var answer = [];
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] !== arr[i+1]) answer.push(arr[i])
+    }
+    
+    return answer;
+}
+
