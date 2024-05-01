@@ -251,3 +251,17 @@ function solution(s) {
     return !isNaN(Number(s)) === true && s.length === 4 || s.length === 6
     }
 //정규 표현식이나 !isNaN을 사용해서 숫자인지 판별한 후 문제를 푸는 방식이었다
+
+//행렬의 덧셈
+function solution(arr1, arr2) {
+    var answer = [];
+    for(let i = 0; i < arr1.length; i ++){
+        for(let j =0; j < arr1[0].length; j ++){
+            answer[i][j] = arr1[i][j] + arr2[i][j]
+        }
+    }
+    return answer;
+}
+//거의 다 풀어놓고 못 푼 문제였다 ㅠㅠ
+//일단 나는 이걸 먼저 for문으로 사용했는데  arr1[0].length; 이게 나중에 왔어야 했고
+// [1,2] 이런식으로 넣으려면 answer[i][j] = arr1[i][j] + arr2[i][j] 이런식으로 할수도 있구나 하고 첨 알았덩
