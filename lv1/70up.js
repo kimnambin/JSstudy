@@ -62,3 +62,67 @@ function solution(n, m) {
     return answer.slice(0,3);
 }
 //살짝 야매로 풀긴했지만 풀긴 품 ㅋㅋㅋ
+
+//3진법 뒤집기
+function solution(n) {
+    let reversedBase3 = ''; // 3진수를 저장할 변수
+  
+    // 먼저 3진수 구하기
+    while (n > 0) {
+      let remainder = n % 3; // 나머지 값
+      reversedBase3 += remainder;
+      n = Math.floor(n / 3);
+    }
+  
+    let decimal = 0;
+  
+    // 3진수를 10진수로 변환
+    for (let i = 0; i < reversedBase3.length; i++) {
+      decimal = decimal * 3 + parseInt(reversedBase3[i]);
+    }
+  
+    return decimal;
+  }
+  //3진수 만드는법 2진수 만드는 법을 알 수 있었다
+  //문자열로 만들고 숫자형으로 다시 바꿔야 하는데 그걸 까먹어서 애좀 먹었다 ㅠㅠ
+
+  //이상한 문자 만들기
+  function solution(s) {
+    let answer = '';
+    let words = s.split(' ');
+    
+    for (let i = 0; i < words.length; i++) {
+        for(let j = 0; j < words[i].length; j++) {
+            if(j % 2 === 0) {
+                answer += words[i][j].toUpperCase();
+            } else {
+                answer += words[i][j].toLowerCase();
+            }
+        }
+        if (i < words.length -1) {
+            answer += ' ';
+        }
+    }
+    return answer;
+}
+//split 함수를 이용해서 공백을 기준으로 단어들을 나열한 후
+//짝홀번째 대문자 소문자로 바꿔주는 문제인데 나중에 다시 공백을 추가할때
+//마지막 단어가 아니라면 공백을 추가한다는  if (i < words.length -1) 이거는 생각도 못했다  ㅠㅠ
+
+//예산
+function solution(d, budget) {
+    var answer = 0;
+    let tmp = 0;
+    let newd = d.sort((a,b)=> a-b);
+    
+    for(let i =0; i < newd.length; i ++){
+         if(budget >= tmp + newd[i]) {
+             tmp += newd[i]
+            answer ++;
+        }
+    }
+    return answer;
+}
+
+//되게 쉬운 문제였는데 sort()이렇게 했다가 틀린 문제였다 ㅠㅠ
+//앞으로는 걍 풀로 다 써야겠다....
