@@ -126,3 +126,18 @@ function solution(d, budget) {
 
 //되게 쉬운 문제였는데 sort()이렇게 했다가 틀린 문제였다 ㅠㅠ
 //앞으로는 걍 풀로 다 써야겠다....
+
+//삼총사
+function solution(number) {
+    var answer = 0;
+    
+    for(let i = 0; i < number.length-2; i ++){ //왼쪽 부터 살펴볼 것
+        for(let j = i+1; j < number.length-1; j ++){ //왼+1부터
+            for(let k = j+1; k < number.length; k ++){
+                if(number[i] +  number[j] + number[k] === 0) answer ++
+            }
+        }
+    }
+    return answer;
+}
+//맨 처음 살피는 수 (for문에서 i) 범위를 length-2로 했어야 했는데 -3으로 해서 오래걸렸다 ㅠㅠ
