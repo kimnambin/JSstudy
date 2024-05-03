@@ -141,3 +141,17 @@ function solution(number) {
     return answer;
 }
 //맨 처음 살피는 수 (for문에서 i) 범위를 length-2로 했어야 했는데 -3으로 해서 오래걸렸다 ㅠㅠ
+
+//최소직사각형
+function solution(sizes) {
+    let maxW =0;
+    let maxH =0;
+
+    for(let i =0; i < sizes.length; i ++){
+        let w = sizes[i][0]
+        let h = sizes[i][1]
+        maxW = Math.max(maxW,Math.max(w,h))
+        maxH = Math.max(maxH,Math.min(w,h))
+    }
+    return maxW * maxH;
+}
