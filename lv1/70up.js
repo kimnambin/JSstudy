@@ -155,3 +155,17 @@ function solution(sizes) {
     }
     return maxW * maxH;
 }
+
+//숫자 문자열과 영단어
+function solution(s) {
+    let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    var answer = s;
+
+    for(let i =0; i < numbers.length; i ++){
+        let arr = answer.split(numbers[i]);
+        answer = arr.join(i)
+    }
+    return Number(answer);
+}
+//s 문자열 기준으로 for문할 생각만 했는데 아예 영단어를 기준으로 for문을 하고 split 정렬하는 방법이라니
+//정말 생각도 못했는데 기가막힌 방법인거 같다!!
