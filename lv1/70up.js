@@ -169,3 +169,12 @@ function solution(s) {
 }
 //s 문자열 기준으로 for문할 생각만 했는데 아예 영단어를 기준으로 for문을 하고 split 정렬하는 방법이라니
 //정말 생각도 못했는데 기가막힌 방법인거 같다!!
+
+//문자열 내 마음대로 정렬하기
+function solution(strings, n) {
+    return strings.sort((a,b) => {
+        if (a[n] === b[n]) return a.localeCompare(b)
+            else return a[n].localeCompare(b[n])
+    })
+}
+//정답률 70%치고는 굉장히 쉽게 풀수 있었다 앞으로도 localeCompare 함수를 잘 사용해야겠다
