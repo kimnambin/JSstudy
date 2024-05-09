@@ -178,3 +178,23 @@ function solution(strings, n) {
     })
 }
 //정답률 70%치고는 굉장히 쉽게 풀수 있었다 앞으로도 localeCompare 함수를 잘 사용해야겠다
+
+//비밀지도
+function solution(n ,arr1 , arr2) {
+    var answer = [];
+
+    for(let i = 0 ; i < n; i ++){
+        let tmp = '';
+        let map1 = arr1[i].toString(2).padStart(n, "0");
+        let map2 = arr2[i].toString(2).padStart(n, "0");
+
+        for(let j = 0; j < n; j ++){
+            if(map1[j] === "1" || map2[j]=== "1") tmp += "#"
+            else tmp += " "
+            
+        }
+        answer.push(tmp)
+    }
+    return answer;
+}
+// 2진수로 바꿀 때 padStart를 사용했어야 했는데 그걸 안해서 오래걸렸던 문제였다 ㅠㅠ
