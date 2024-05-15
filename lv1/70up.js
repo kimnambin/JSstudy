@@ -198,3 +198,19 @@ function solution(n ,arr1 , arr2) {
     return answer;
 }
 // 2진수로 바꿀 때 padStart를 사용했어야 했는데 그걸 안해서 오래걸렸던 문제였다 ㅠㅠ
+
+//k번째수
+function solution(array, commands) {
+    var answer = [];
+    
+    //먼저 commands 값들을 자른후 정렬하기
+    for(let i = 0; i < commands.length; i++){
+        let a = array.slice(commands[i][0]-1,commands[i][1])
+        a.sort((a,b)=> a-b);
+        answer.push(a[commands[i][2]-1])
+    }
+    return answer
+}
+
+//slice를 사용해서 푼 첫번째 문제이다.
+//slice가 0,2이면 0부터 1까지 반환해주는것이라 이게 헷갈려서 오래걸렸던 문제였다 ㅠㅠ
