@@ -214,3 +214,20 @@ function solution(array, commands) {
 
 //slice를 사용해서 푼 첫번째 문제이다.
 //slice가 0,2이면 0부터 1까지 반환해주는것이라 이게 헷갈려서 오래걸렸던 문제였다 ㅠㅠ
+
+
+//두 개 뽑아서 더하기
+function solution(n) {
+    let answer = [];
+
+    for(let i=0; i< n.length; i++){
+        for(let j = i+1; j <n.length; j++){
+            if(i != j) answer.push(n[i] +n[j])
+        }
+    }
+    const tmp = [...new Set(answer)]
+    return tmp;
+}
+//올만에 풀어서 감이 좀 떨어졌다 ㅠㅠ 
+//어려운 문제는 아니였는데 그동안 했던걸 조금 까먹어서 오래거림
+//순환할 때 i=0 i+1이랑 ...new Set 까먹지 말자!!
