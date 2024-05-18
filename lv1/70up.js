@@ -231,3 +231,16 @@ function solution(n) {
 //올만에 풀어서 감이 좀 떨어졌다 ㅠㅠ 
 //어려운 문제는 아니였는데 그동안 했던걸 조금 까먹어서 오래거림
 //순환할 때 i=0 i+1이랑 ...new Set 까먹지 말자!!
+
+//콜라문제
+function solution(a, b, n) {
+    let answer = 0;
+
+    while( n >= a){
+        answer += Math.floor(n/a) * b //이게 받은 것
+        n = (n%a) + Math.floor(n/a) * b //이게 남은 것들
+    }
+    return answer;
+}
+// while문을 사용하는데 n--를 써가지고 못푼 문제엿다 ㅠㅠㅠ
+// 이거랑 비슷한 문제를 풀었었는데 못푼게 아쉬운 문제다 ㅠ
