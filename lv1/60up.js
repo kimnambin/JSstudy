@@ -50,3 +50,22 @@ function solution(answers) {
 }
 // i% fir.length 를 사용하면 계속해서 같은 배열을 순환한다는 것을 첨 알게 된 문제였다
 // 더 짧게 푼 사람도 있을줄 알았는데 대부분 다 비슷한 거 같다
+
+//과일장수
+function solution(k, m, score) {
+    var answer = 0;
+    let maxscore = score.sort((a,b)=> b-a)
+    let tmp =[];
+
+    for(let i= 0; i < maxscore.length; i+=m){
+        tmp.push(maxscore.slice(i,i+m)) 
+    }
+    
+    for(let j= 0; j < tmp.length; j++){
+        if(tmp[j].length === m)answer += tmp[j][m-1] * m
+    }
+    return answer;
+}
+/*시간이 오래걸리긴 했지만 문제를 풀어서 기분이 좋다
+나는 tmp라는 임시배열을 만들어서 문제를 풀었는데 안쓰고 조금 더 짧게 푸는 방법도 있었다
+slice 함수가 아직은 익숙하지 않은데 잘 사용해야겠다*/
