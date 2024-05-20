@@ -69,3 +69,30 @@ function solution(k, m, score) {
 /*시간이 오래걸리긴 했지만 문제를 풀어서 기분이 좋다
 나는 tmp라는 임시배열을 만들어서 문제를 풀었는데 안쓰고 조금 더 짧게 푸는 방법도 있었다
 slice 함수가 아직은 익숙하지 않은데 잘 사용해야겠다*/
+
+
+//기사단의 무기
+function solution(number, limit, power) {
+    let answer = 0;
+
+    //먼저 1부터 number 구하기
+    for(let i =1; i<= number; i++){
+        let cnt =0; //이게 약수 구하는 것
+        for(let j=1; j <= Math.sqrt(i); j++){
+            if(i % j === 0){
+                cnt ++;
+            }
+            if(j !== i/j){
+                cnt ++;
+            }
+        }
+    
+        //여기부터 이제 최종정답 구하기
+        if(cnt >limit){answer += power;
+        }else{ answer += cnt
+        }
+    }
+    return answer;
+}
+/*약수 구하는 for문에 대해 알게 되었고 그동안은 귀찮아서 if나 else쓸때 
+괄호를 사용하지 않았는데 이 문제로 인해 중요성을 깨달았다*/
