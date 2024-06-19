@@ -96,3 +96,28 @@ function solution(number, limit, power) {
 }
 /*약수 구하는 for문에 대해 알게 되었고 그동안은 귀찮아서 if나 else쓸때 
 괄호를 사용하지 않았는데 이 문제로 인해 중요성을 깨달았다*/
+
+
+//소수 찾기
+function solution(nums) {
+    let cnt = 0;
+    
+    for(let i = 0; i < nums.length-2; i ++){//이게 첫번째 수
+        for(let j = i+1; j < nums.length-1; j++){//이게 두번째 수
+            for(let k= j+1; k < nums.length; k ++){//이게 세번째 수
+                let result = nums[i] + nums[j] + nums[k]; //이게 전체 더한 것
+                cnt ++;
+
+               for(let n =2; n <= Math.sqrt(result); n++ ){
+                if(result % n === 0){
+                    cnt --;
+                    break;
+                }
+               }
+            }
+        }
+    }
+    return cnt;
+}
+/*소수 찾는 문제는 많이 풀어봤는데 n개의 수 중 3가지 수를 뽑아서 고르는 거 + 
+올만에 풀어보는 코테때문에 오래걸렸던 문제였다 */
