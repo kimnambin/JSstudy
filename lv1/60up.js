@@ -121,3 +121,36 @@ function solution(nums) {
 }
 /*소수 찾는 문제는 많이 풀어봤는데 n개의 수 중 3가지 수를 뽑아서 고르는 거 + 
 올만에 풀어보는 코테때문에 오래걸렸던 문제였다 */
+
+//소수찾기
+function solution(n) {
+    //n의 크기만큼 true 채워넣기
+    let answer = new Array(n+1).fill(true);
+
+    //0과1은 소수가 아니므로 false
+    result[0] = false;
+    result[1] = false;
+
+    //소수 판별
+    for(let i = 2; i <= Math.sqrt(n); i++){
+       if(result[i]){
+        //여기가 배열인지 판별하는 것
+        for(let j = i*i; j <=n; j +=i){
+            result[i] = false; //배열이면 소수이므로 false
+        }
+       }
+    }
+
+    //소수 찾기
+    let cnt = 0;
+    for(let i =2; i <=n; i ++){
+        if(result[i]){
+            cnt++;
+        }
+    }
+    return cnt;
+}
+/*사실 그동안은 알고리즘을 딱히 알고있지 않아도 풀리는 문제가 대부분이었는데
+이런 문제가 나오니 알고리즘의 중요성(?)을 알게 되었다.
+이 폿팅을 적는 이유도 에라토스테네스의 체 알고리즘에 대해 까먹지 않기 위함
+앞으로 알고리즘을 이용해서 푸는 문제가 보이면 알고리즘을 이용해서 문제를 풀어야 겠다*/
