@@ -171,3 +171,39 @@ function solution(n, m, section) {
 }
 //이 문제는 컴알 시간에 배웠던 구간분할 문제였다 
 //구간분할 문제는 첨이라 살짝 당황했으나 다행히 풀수 있었다
+
+//실패울
+function solution(N, stages) {
+    //실패율 구하고 정렬하고
+
+    let result = []; 
+
+    //이게 N
+    for(let i =1; i <= N; i ++){
+        let pass =0; //이게 통과
+        let nonpass=0; //이게 불통과
+        //이게 스테이지
+        for(let j =0; j < stages.length; j ++){
+            if(i <= stages[j]) pass++
+            if(i === stages[j]) nonpass++
+        }
+        let failed = pass === 0 ? 0: nonpass/pass;
+        result.push({stage : i , rate : failed});
+    }
+    result.sort((a,b) => b.rate -a.rate || a.stage - b.stage);
+    return result.map(v => v.stage)
+}
+//다른 사람의 풀이
+function solution(N, stages) {
+    let result = [];
+
+    for(let i =1; i<= N; i++){
+        let reach = stages.filter((x) => x >= i).length;
+        let curr = stages.filter((x) => x === i).length;
+
+        result.push([i , curr/reach])
+    }
+    result.sort((a,b) => b[1] -a[1])
+    return result.map((x)=>x[0])
+}
+//이게 실패율을 구할 때 분모가 계속 달라지는 경우라 넘 어려웠다 ㅠㅠㅠ
