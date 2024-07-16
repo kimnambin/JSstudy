@@ -32,3 +32,93 @@ function solution(array, height) {
     return  array.filter(v => v > height).length;
  }
  //이 문제는 보자마자 filter를 쓰는 문제인것을 알았고 처음으로 filter을 써서 맞쳤다 ㅎㅎ
+
+//  ==============================================
+// 자바스크립트 복습하기 (정답률 80%대)
+
+function solution(a, b, flag) {
+    return (flag === true ? (a)+(b) : (a)-(b));
+}
+
+function solution(n) {
+    return String(n);
+}
+
+function solution(n_str) {
+    return Number(n_str);
+}
+
+function solution(num_str) {
+    var answer = num_str.split('');
+    let cnt = 0;
+    for(let i = 0; i < answer.length; i++) {
+        cnt += Number(answer[i]);
+    }
+    return cnt;
+}
+
+function solution(flo) {
+    return Math.floor(flo);
+}
+
+function solution(num_list) {
+    var answer = [];
+    let newArr =  num_list.sort((a,b) => a-b);
+    
+    for(let i =5; i < newArr.length; i ++){
+        answer.push(newArr[i])
+    }
+    return answer;
+}
+
+// ==>> slice로 코드 한줄만에 풀기
+
+function solution(num_list) {
+    return num_list.sort((a,b)=>a-b).slice(5);
+}
+
+function solution(num_list) {
+    return num_list.sort((a,b) => a-b).slice(0,5);
+}
+
+
+function solution(arr, n) {
+    var answer = [];
+    let arrLength = arr.length;
+    
+    if(arrLength % 2 === 0){
+        for(let j = 0; j < arr.length; j +=2){
+               answer.splice(j, 0 ,arr[j]) 
+        }
+        for(let i = 1; i < arr.length; i +=2){
+               answer.splice(i, 0 ,arr[i] + n) 
+        }
+    }
+  
+    else{
+        for(let i = 0; i < arr.length; i +=2){
+               answer.splice(i,0,arr[i] + n) 
+        }
+        for(let j = 1; j < arr.length; j +=2){
+               answer.splice(j,0,arr[j]) 
+        }
+    }
+    return answer;
+}
+
+
+function solution(arr1, arr2) {
+    let cnt1 = 0;
+    let cnt2 = 0;
+    if(arr1.length === arr2.length){
+      for(let i = 0; i < arr1.length; i ++){
+          cnt1 += arr1[i]
+          cnt2 += arr2[i]
+      }
+          if(cnt1 === cnt2) return 0
+          if(cnt1 > cnt2) return 1
+          else return -1
+       
+    }
+    else {return arr1.length > arr2.length ? 1 : -1;
+}}
