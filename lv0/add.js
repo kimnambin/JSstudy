@@ -122,3 +122,38 @@ function solution(arr1, arr2) {
     }
     else {return arr1.length > arr2.length ? 1 : -1;
 }}
+
+// ===========================================
+function solution(arr) {
+    var answer = [];
+
+    for(const num of arr){
+        for(let i = 0; i < num; i ++){
+            answer.push(num)
+        }
+    }
+    return answer;
+}
+
+function solution(rny_string) {
+    var answer = rny_string.split('');
+    let result = ''
+    
+    for(let i = 0; i < answer.length ; i++){
+        if(answer[i] === 'm')  result += 'rn'
+        else result += answer[i]   
+    }
+    return result;
+}
+
+function solution(myString, pat) {
+    var answer = '';
+    
+    for(let i = 0; i < myString.length; i++){
+        if(myString[i] == 'A') answer += 'B'
+        else answer += 'A'
+    }
+    
+        return answer.includes(pat) ? 1:0;
+    
+}
