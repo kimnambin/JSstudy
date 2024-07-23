@@ -157,3 +157,23 @@ function solution(myString, pat) {
         return answer.includes(pat) ? 1:0;
     
 }
+
+//====================================================
+
+function solution(my_string) {
+   return my_string.split(' ').filter((v)=> v != '')
+}
+
+
+const solution = my_string => my_string.split(' ')
+
+
+function solution(my_string, alp) {
+    var answer = my_string.split('')
+    let tmp = ''
+    for(let i = 0; i < answer.length; i ++){
+        if(answer[i] == alp) tmp += answer[i].toUpperCase()
+        else tmp += answer[i]
+    }
+    return tmp;
+}
