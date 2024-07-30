@@ -51,3 +51,25 @@ function solution(num_list) {
     }
     return (num_list.length >= 11) ? result : tmp
 }
+
+
+function solution(arr) {
+    let tmp = []
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] % 2 === 0 && arr[i] >= 50) {tmp.push(arr[i]/2)}
+        else if(arr[i] % 2 !== 0 && arr[i] <= 50) {tmp.push(arr[i]*2)}
+        else {tmp.push(arr[i])}
+    }
+    return tmp
+}
+
+function solution(numbers, n) {
+    var answer = 0;
+    for(let i =0; i < numbers.length; i ++){
+        if(answer <= n) answer += numbers[i]
+        else break;
+    }
+    return answer;
+}
+// 조건문과 반복문을 공부하기 좋은 문제들이었다
+// ============================================================
