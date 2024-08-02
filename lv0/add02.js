@@ -73,3 +73,41 @@ function solution(numbers, n) {
 }
 // 조건문과 반복문을 공부하기 좋은 문제들이었다
 // ============================================================
+
+//08월 02일
+
+function solution(names) {
+    var answer = [];
+    for(let i = 0; i < names.length; i+=5){
+        answer.push(names[i])
+    }
+    return answer;
+}
+
+function solution(num_list, n) {
+    var answer = [];
+    for(let i = 0; i < n; i++){
+        answer.push(num_list[i])
+    }
+    return answer;
+}
+
+function solution(num_list, n) {
+    var answer = [];
+    for(let i = n; i < num_list.length; i++){
+        answer.push(num_list[i])
+    }
+    for(let i = 0; i < n; i++){
+        answer.push(num_list[i])
+    }
+    return answer;
+}
+
+function solution(num_list, n) {
+    num_list.push(...num_list.splice(0,n));
+    return num_list
+}
+
+// 오늘은 for문을 사용하는 문제가 많았다
+// for문은 많이 써서 익숙하기도 하고 코드가 길어지니
+// 앞으로는 slice나 while문도 사용해보자!!
