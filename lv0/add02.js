@@ -111,3 +111,41 @@ function solution(num_list, n) {
 // 오늘은 for문을 사용하는 문제가 많았다
 // for문은 많이 써서 익숙하기도 하고 코드가 길어지니
 // 앞으로는 slice나 while문도 사용해보자!!
+
+
+function solution(num_list, n) {
+    // var answer = [];
+    // for(let i = n-1; i < num_list.length; i ++){
+    //     answer.push(num_list[i])
+    // }
+    return num_list.slice(n-1);
+    // return answer
+}
+
+
+function solution(num_list) {
+    for(let i = 0 ; i < num_list.length; i ++){
+        if(num_list[i] < 0) return i
+    }
+      return -1;
+ }
+
+ function solution(start_num, end_num) {
+    let tmp = [];
+    for(let i = start_num; i >= end_num; i--){
+          tmp.push(i)
+      }
+      return tmp;
+  }
+
+  function solution(n, k) {
+    var answer = [];
+    for(let i = k; i <=n; i+=k){
+        answer.push(i)
+    }
+    return answer;
+}
+
+// 오늘도 for문을 사용하는 문제가 많았는데 
+// 이번엔 한번 더 꼬아서 i로 시작했다면 이걸 사용하지 못하는 문제가 많았다
+// for문에 대해 자만하고 있었던거 같은데 다시 생각하게 된 좋은 하루였던 거 같다
