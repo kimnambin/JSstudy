@@ -149,3 +149,38 @@ function solution(num_list) {
 // 오늘도 for문을 사용하는 문제가 많았는데 
 // 이번엔 한번 더 꼬아서 i로 시작했다면 이걸 사용하지 못하는 문제가 많았다
 // for문에 대해 자만하고 있었던거 같은데 다시 생각하게 된 좋은 하루였던 거 같다
+
+// ===========================================================================================
+
+function solution(my_string, is_prefix) {
+    if(my_string[0] !== is_prefix[0]) return 0
+    else return my_string.includes(is_prefix) ? 1 : 0 ;
+}
+
+// -->> return my_string.startsWith(is_prefix) ? 1 : 0;
+// startWith라는 문제가 있는 걸 첨알았다... 반대는 endsWith
+
+function solution(my_string, n) {
+    return my_string.slice(0,n);
+}
+
+function solution(my_string, n) {
+    return my_string.slice(my_string.length-n, my_string.length);
+}
+
+function solution(my_strings, parts) {
+    var answer = '';
+    for(let i =0; i < my_strings.length; i ++){
+      answer+= (my_strings[i].slice(parts[i][0], parts[i][1]+1))
+    }
+    return answer;
+}
+
+function solution(my_string, index_list) {
+    var answer = '';
+        for(let j = 0; j < index_list.length; j ++){
+            answer += my_string[index_list[j]]
+        }
+    
+    return answer;
+}
