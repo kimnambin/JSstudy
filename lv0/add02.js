@@ -184,3 +184,27 @@ function solution(my_string, index_list) {
     
     return answer;
 }
+
+function solution(n, control) {
+    var answer = n;
+    const wsda = {
+        "w" : '1',
+        "s" : '-1',
+        "d" : '10',
+        "a" : '-10'
+    }
+    for(let i =0; i< control.length; i++){
+        answer += Number(wsda[control[i]])
+    }
+    return answer;
+}
+
+function solution(num_list) {
+    if (num_list[num_list.length - 1] > num_list[num_list.length - 2]) {
+        num_list.push(num_list[num_list.length - 1] - num_list[num_list.length - 2]);
+    } else {
+        num_list.push(num_list[num_list.length - 1] * 2);
+    }
+    return num_list;
+}
+
