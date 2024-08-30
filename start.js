@@ -1,6 +1,6 @@
 // const input = require('fs').readFileSync('/dev/stdin').toString().split('');.split(/\s+/);
 
-//1316번 그룹 단어 체커
+//2563번 색종이
 
 const input = require('fs')
   .readFileSync('C:\\Users\\82109\\Desktop\\Study\\JSstudy\\input.txt')
@@ -8,21 +8,27 @@ const input = require('fs')
   .trim()
   .split('\n');
 
-let cnt = 0;
+// 2차원 배열 만들기
+let map = Array.from(Array(100), () => Array(100).fill(0));
 
+//가로 , 세로 채워 넣기!!
 for (let i = 1; i <= input[0]; i++) {
-  let 단어 = input[i].split('');
-  let 그룹 = true;
+  let [가로, 세로] = input[i].split(' ').map(Number);
 
-  for (let j = 1; j < 단어.length; j++) {
-    if (
-      단어[j] !== 단어[j - 1] && //앞에 꺼와 같지 않을 때
-      단어.indexOf(단어[j]) < j //중복 단어인지 확인용
-    ) {
-      그룹 = false; //그룹 단어에서 제외시킴
+  for (let a = 가로; a < 가로 + 10; a++) {
+    for (let b = 세로; b < 세로 + 10; b++) {
+      map[a][b] = 1;
     }
   }
-  if (그룹) cnt++;
+}
+
+let cnt = 0;
+
+//이제 차지하는 공간 구하기
+for (let i = 0; i < 100; i++) {
+  for (let j = 0; j < 100; j++) {
+    if (map[i][j] == 1) cnt++;
+  }
 }
 
 console.log(cnt);
