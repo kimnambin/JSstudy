@@ -1,30 +1,25 @@
 function solution(progresses, speeds) {
     var answer = [];
-    let finish = [];
-
-   
-    for (let i = 0; i < progresses.length; i++) {
-        let remained = 100 - progresses[i];
-        let days = Math.ceil(remained / speeds[i]);
-        finish.push(days);
-    }
-
-    let maxDay = finish[0]; 
-    let count = 0;          
-
-    for (let i = 0; i < finish.length; i++) {
-        if (finish[i] <= maxDay) {
-            count++;
-        } else {
-            answer.push(count); 
-            count = 1;        
-            maxDay = finish[i];
+    
+    let remained = progresses.map((v,i) => {
+        return Math.ceil((100 - v) / speeds[i])
+    })
+    
+    let cnt = 1
+    let top_pro = remained[0]
+    
+    for(let i = 1; i < remained.length; i++){
+        if(top_pro >= remained[i]){
+            cnt ++
+        }
+        else{
+            answer.push(cnt)
+            cnt = 1
+            top_pro = remained[i]
         }
     }
-
-   
-    answer.push(count);
-
-
+    answer.push(cnt)
+    
+    
     return answer;
 }
