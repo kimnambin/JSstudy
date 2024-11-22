@@ -1,16 +1,16 @@
 function solution(people, limit) {
     var answer = 0;
+    let new_people = people.sort((a,b) => a-b)
     let left = 0
-    let right = people.length -1
-    people.sort((a,b) => a-b)
+    let right = new_people.length -1
     
     while(left <= right){
-        if(people[left] + people[right] <= limit){
+        if(new_people[left] + new_people[right] <= limit){
             left ++
-        }
+}
         right --
         answer ++
     }
-        
+    
     return answer;
 }
