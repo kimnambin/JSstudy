@@ -1,15 +1,14 @@
-const solution = (clothes) => {
+function solution(clothes) {
     var answer = 1;
-    let kind = {}
+    let obj = {}
     
-    for(let i =0; i < clothes.length; i++){
-        let type = clothes[i][1]
-        kind[type] = (kind[type] || 0) + 1
+    for(let i = 0; i < clothes.length; i++){
+        obj[clothes[i][1]] = (obj[clothes[i][1]] || 0) + 1
     }
     
-    for(const cnt of Object.values(kind)){
-        console.log(cnt)
-        answer *= (cnt +1)
+    for(const idx in obj){
+        answer *= obj[idx] +1
     }
+    
     return answer - 1;
 }
